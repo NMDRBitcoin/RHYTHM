@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>NMDR Rhythm</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <main id="app">
+    <section id="menuScreen" class="screen active">
+      <div class="menu-wrap">
+        <div class="eyebrow">NMDR RHYTHM</div>
+        <h1>Choose Your Track</h1>
+
+        <div class="song-card">
+          <div class="cover-wrap">
+            <img id="coverImg" src="songs/test-song/cover.svg" alt="곡 커버" />
+          </div>
+          <div class="song-meta">
+            <label>곡
+              <select id="songSelect"></select>
+            </label>
+            <label>난이도
+              <select id="difficultySelect">
+                <option value="easy">EASY</option>
+                <option value="normal" selected>NORMAL</option>
+                <option value="hard">HARD</option>
+              </select>
+            </label>
+            <button id="startBtn" class="primary">START</button>
+            <a class="secondary-link" href="editor.html">CHART EDITOR</a>
+            <p class="hint">PC: D / F / J / K · 모바일: 각 레인 터치</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="gameScreen" class="screen">
+      <header class="hud">
+        <div><span class="label">SCORE</span><strong id="score">0</strong></div>
+        <div><span class="label">COMBO</span><strong id="combo">0</strong></div>
+        <div><span class="label">ACC</span><strong id="accuracy">100.00%</strong></div>
+      </header>
+
+      <div class="game-layout">
+        <section class="play-panel">
+          <div id="countdown" class="countdown"></div>
+          <div id="judgement" class="judgement"></div>
+          <div id="playCombo" class="play-combo" aria-live="polite">
+            <div id="playComboNumber" class="combo-number">0</div>
+            <div class="combo-word">COMBO</div>
+          </div>
+          <div id="celebration" class="celebration">
+            <div class="celebration-content">
+              <div id="celebrationCount" class="celebration-count">100 COMBO</div>
+              <div id="celebrationMessage" class="celebration-message">YOU'RE AWESOME!</div>
+            </div>
+          </div>
+          <div id="lanes" class="lanes" tabindex="0" aria-label="4키 리듬게임 플레이 영역">
+            <div class="lane lane-0" data-lane="0"><span class="key-label">D</span></div>
+            <div class="lane lane-1" data-lane="1"><span class="key-label">F</span></div>
+            <div class="lane lane-2" data-lane="2"><span class="key-label">J</span></div>
+            <div class="lane lane-3" data-lane="3"><span class="key-label">K</span></div>
+            <div class="judge-line"></div>
+          </div>
+        </section>
+
+        <aside class="video-panel">
+          <div class="video-frame">
+            <video id="loopVideo" muted playsinline loop preload="auto"></video>
+            <div id="videoFallback" class="video-fallback">
+              <div class="orb"></div>
+              <p>6 SEC LOOP VIDEO</p>
+              <span>loop.mp4를 넣으면 여기서 반복 재생됩니다.</span>
+            </div>
+          </div>
+          <h2 id="nowPlaying">TEST SONG</h2>
+          <p id="difficultyLabel">NORMAL</p>
+        </aside>
+      </div>
+
+      <audio id="audio"></audio><audio id="comboSound" src="assets/sounds/combo100.mp3" preload="auto"></audio>
+      <button id="quitBtn" class="quit">QUIT</button>
+    </section>
+
+    <section id="resultScreen" class="screen">
+      <div class="result-card">
+        <div class="eyebrow">RESULT</div>
+        <h1 id="rank">S</h1>
+        <div class="result-grid">
+          <div><span>SCORE</span><strong id="resultScore">0</strong></div>
+          <div><span>ACCURACY</span><strong id="resultAcc">0%</strong></div>
+          <div><span>MAX COMBO</span><strong id="resultCombo">0</strong></div>
+          <div><span>PERFECT</span><strong id="perfectCount">0</strong></div>
+          <div><span>GREAT</span><strong id="greatCount">0</strong></div>
+          <div><span>GOOD</span><strong id="goodCount">0</strong></div>
+          <div><span>MISS</span><strong id="missCount">0</strong></div>
+        </div>
+        <button id="retryBtn" class="primary">PLAY AGAIN</button>
+        <button id="backBtn" class="secondary">SONG SELECT</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/songs.js"></script>
+  <script src="js/game.js"></script>
+</body>
+</html>

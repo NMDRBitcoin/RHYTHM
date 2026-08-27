@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>NMDR Rhythm Chart Editor</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <main class="editor-page">
+    <div class="editor-header">
+      <div>
+        <div class="eyebrow">NMDR RHYTHM</div>
+        <h1>Chart Editor</h1>
+      </div>
+      <a class="secondary-link" href="index.html">← GAME</a>
+    </div>
+
+    <section class="editor-controls">
+      <label>음원 파일
+        <input id="audioFile" type="file" accept="audio/*" />
+      </label>
+      <label>난이도
+        <select id="editorDifficulty">
+          <option value="easy">EASY</option>
+          <option value="normal" selected>NORMAL</option>
+          <option value="hard">HARD</option>
+        </select>
+      </label>
+      <label>BPM
+        <input id="bpm" type="number" value="120" min="40" max="300" />
+      </label>
+      <label>스냅
+        <select id="snap">
+          <option value="0">OFF</option>
+          <option value="4">1/4</option>
+          <option value="8" selected>1/8</option>
+          <option value="16">1/16</option>
+          <option value="32">1/32</option>
+        </select>
+      </label>
+      <label>Offset (ms)
+        <input id="offset" type="number" value="0" step="1" />
+      </label>
+    </section>
+
+    <section class="transport">
+      <button id="playPause" class="primary">PLAY</button>
+      <button id="stopBtn" class="secondary">STOP</button>
+      <button id="undoBtn" class="secondary">UNDO</button>
+      <button id="clearBtn" class="secondary">CLEAR</button>
+      <button id="exportBtn" class="secondary">EXPORT JSON</button>
+      <label class="import-label">IMPORT JSON
+        <input id="importJson" type="file" accept=".json,application/json" hidden />
+      </label>
+    </section>
+
+    <section class="timeline-box">
+      <div class="time-row">
+        <span id="currentTime">0.000</span>
+        <input id="seek" type="range" min="0" max="1" value="0" step="0.001" />
+        <span id="duration">0.000</span>
+      </div>
+
+      <p class="hint">D/F/J/K를 짧게 누르면 TAP, 길게 누르고 있다가 떼면 HOLD가 기록됩니다. 표의 Duration(초)으로 롱노트 길이도 직접 수정할 수 있습니다.</p>
+
+      <div id="editorLanes" class="editor-lanes" tabindex="0">
+        <div class="editor-lane" data-lane="0"><b>D</b></div>
+        <div class="editor-lane" data-lane="1"><b>F</b></div>
+        <div class="editor-lane" data-lane="2"><b>J</b></div>
+        <div class="editor-lane" data-lane="3"><b>K</b></div>
+      </div>
+    </section>
+
+    <section class="note-table-wrap">
+      <div class="editor-stats">
+        <strong id="noteCount">0 notes</strong>
+        <span id="status">음원을 선택하세요.</span>
+      </div>
+      <table class="note-table">
+        <thead><tr><th>#</th><th>TIME</th><th>LANE</th><th>DURATION</th><th></th></tr></thead>
+        <tbody id="noteTable"></tbody>
+      </table>
+    </section>
+
+    <audio id="editorAudio"></audio>
+  </main>
+
+  <script src="js/editor.js"></script>
+</body>
+</html>

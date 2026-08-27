@@ -1,0 +1,41 @@
+﻿NMDR RHYTHM V2.2
+
+추가 기능
+1. HOLD NOTE
+- 플레이: 키/터치 버튼을 누르고 유지
+- 끝까지 유지: HOLD COMPLETE
+- 중간 해제: HOLD BREAK
+- 유지 중 레인 Glow + 빛기둥 + Particle
+- PC DFJK / 모바일 하단 DFJK 패드 멀티터치
+
+2. CHART EDITOR HOLD
+- D/F/J/K 짧게 입력: TAP
+- 0.15초 초과 유지 후 해제: HOLD
+- 표의 DURATION 값으로 직접 길이 수정 가능
+- JSON duration 필드 사용
+
+3. LOOP VIDEO
+- 1:1 프레임
+- object-fit: contain
+- 정사각형 영상이 잘리지 않음
+
+4. PLAY COMBO
+- 상단 HUD 외에 채보 중앙에도 큰 COMBO 표시
+- MISS/HOLD BREAK 시 사라짐
+
+5. 100 COMBO CELEBRATION
+- 100/200/300... 콤보마다 전체 플레이 영역 이펙트
+- YOU'RE AWESOME / AMAZING / UNSTOPPABLE / LEGENDARY 순환
+- assets/sounds/combo100.mp3가 있으면 효과음 재생
+- 효과음 파일이 없어도 화면 이펙트는 정상 작동
+
+실행
+START_GAME.bat 더블클릭
+
+곡 추가
+songs/곡명/song.mp3
+songs/곡명/cover.png
+songs/곡명/loop.mp4
+songs/곡명/easy.json
+songs/곡명/normal.json
+songs/곡명/hard.json

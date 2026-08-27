@@ -1,0 +1,15 @@
+﻿1. 이 ZIP을 새 폴더에 통째로 압축 해제하세요.
+2. 예전 V1 폴더에 START_GAME.bat만 복사하지 마세요.
+3. songs 폴더 안에 곡명 폴더를 만드세요.
+4. 각 곡 폴더에 song.mp3를 넣으세요.
+   선택: cover.png, loop.mp4
+   채보: easy.json, normal.json, hard.json
+5. START_GAME.bat을 더블클릭하세요.
+
+예:
+songs\GREEN AGAIN\song.mp3
+songs\GREEN AGAIN\cover.png
+songs\GREEN AGAIN\loop.mp4
+songs\GREEN AGAIN\easy.json
+songs\GREEN AGAIN\normal.json
+songs\GREEN AGAIN\hard.json
